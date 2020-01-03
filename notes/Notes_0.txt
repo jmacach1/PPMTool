@@ -1,0 +1,57 @@
+Great Spring App
+Video Number 7
+12/2/2019
+
+Create Spring Project
+Group - Your Company
+Artifact - Project Name
+Description - description of project
+
+Dependencies
+- Core > DevTools - allows use of H2
+- Web > web
+- SQL - JPA, MYSQL, H2
+
+
+Git 7:21
+https://www.atlassian.com/git/tutorials/using-branches
+
+12/30/2019
+
+Create Repository on GitHub. 
+
+In Computer
+$git config --global user.email "jerald.macachor@gmail.com"
+$git config --global user.name "jerald"
+
+$git init // initialized the git repository on computer
+$git add . // add everything to the staging area
+$git remote add origin git@github.com:jmacach1/ppmtool.git // sets up a remote repo location
+$git push -u origin master // push our code to the remote
+
+PassPhrase MyFv#$11Jm
+
+Branching 10:08
+
+$git branch // see the branches * means your branch. 
+// master branch is usually stable version - thoroughly reviewed - passed all tests(integration, unit, etc).
+$git branch branch0 // creates a new branch called branch0
+$git checkout branch0 // switches from current branch to branch0
+
+// added domain > Project.java
+$git push // branch0 has no upstream. 
+$git push --set-upstream origin branch0 // Branch 'branch0' set up to track remote branch 'branch0' from 'origin'.
+
+$git checkout master
+$git merge branch0 // merge branch0 to master
+
+
+
+
+
+
+
+
+
+
+
