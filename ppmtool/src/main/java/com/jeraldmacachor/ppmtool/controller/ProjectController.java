@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jeraldmacachor.ppmtool.domain.Project;
+import com.jeraldmacachor.ppmtool.service.MapValidationErrorService;
 import com.jeraldmacachor.ppmtool.service.ProjectService;
 
 @RestController
@@ -19,21 +20,20 @@ import com.jeraldmacachor.ppmtool.service.ProjectService;
 public class ProjectController {
 	
 	@Autowired
-	ProjectService projectService;
+	private ProjectService projectService;
+	
+	@Autowired
+	private MapValidationErrorService validationService;
 	
 	@PostMapping("")
 	public ResponseEntity<?> createNewProject(
 			@Valid @RequestBody Project project,
 			BindingResult result) {
-		/* ResponseEntity - allows us to have more control on
-		json responses - status, json objects */
+
+		ResponseEntity<?> errorMap = validationService.MapValidationService(result);
+		if (errorMap != null) return errorMap;
 		
-		if (result.hasErrors()) {
-			return new ResponseEntity<String>("Invalid Project Object", 
-					HttpStatus.BAD_REQUEST);
-		}
 		projectService.saveOrUpdateProject(project);
-		
 		return new ResponseEntity<Project>(project, HttpStatus.CREATED);
 	}
 	
