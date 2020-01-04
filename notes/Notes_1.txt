@@ -1,0 +1,10 @@
+H2 Database - download
+
+Wiring up Repository => Service => Controller
+
+Postman
+Collections - saving requests in collections
+
+
+Video 11
+Validation
